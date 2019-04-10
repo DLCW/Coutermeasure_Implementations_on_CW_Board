@@ -108,13 +108,7 @@ void aes_cipher()
     }
 }
 
-void aes_res()
-{
-	int i=0;
-	for(i=0; i<16; i++){
-        t_res[i] = state[i];
-    }
-}
+
 void aes_prepa(unsigned char key[16], unsigned char plain[16]) {
     volatile int i;
 	unsigned char tmp_1, tmp_2;
@@ -195,8 +189,6 @@ int main
 				trigger_high();
 				aes_cipher();
 				trigger_low();
-				aes_res();          
-				/* Print Results */
 				hex_print(t_res, 16, asciibuf);			
 				putch('r');
 				for(int i = 0; i < 32; i++){
